@@ -1,386 +1,401 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Aula 2026</title>
+  <title>Aula Virtual 2026</title>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f3f6fb;
-      margin: 0;
-      padding: 20px;
-      color: #263238;
-    }
-
-    .contenedor {
-      max-width: 1100px;
-      margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 4px 18px #0002;
-    }
-
-    h1, h2 {
-      color: #2457a6;
-    }
-
-    input, select, textarea, button {
-      width: 100%;
-      padding: 11px;
-      margin: 6px 0 14px;
-      border: 1px solid #ccd5e0;
-      border-radius: 8px;
+    * {
       box-sizing: border-box;
-      font-size: 15px;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
 
-    button {
-      background: #2457a6;
-      color: white;
-      cursor: pointer;
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #eaf4ff, #f7efff);
+      color: #26364a;
+    }
+
+    .pantalla {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .tarjeta {
+      width: 100%;
+      max-width: 850px;
+      background: white;
+      border-radius: 28px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(60, 80, 120, 0.15);
+    }
+
+    .icono {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 38px;
+      color: #355c8a;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo {
+      font-size: 20px;
+      color: #68788d;
+      margin-bottom: 25px;
+    }
+
+    .mensaje {
+      background: #f4f8fc;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 25px 0 30px;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .boton {
       border: none;
-      font-weight: bold;
+      border-radius: 14px;
+      padding: 15px 35px;
+      font-size: 17px;
+      cursor: pointer;
+      background: #4f82b8;
+      color: white;
+      transition: 0.2s;
     }
 
-    button:hover {
-      background: #17417e;
+    .boton:hover {
+      transform: translateY(-2px);
+      background: #3d6f9f;
     }
 
     .oculto {
       display: none;
     }
 
-    .tarjeta {
-      background: #f7f9fc;
-      border: 1px solid #dce4ef;
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 20px;
+    #accesos {
+      margin-top: 30px;
     }
 
-    .tabla-contenedor {
-      overflow-x: auto;
+    .titulo-acceso {
+      font-size: 25px;
+      color: #355c8a;
+      margin-bottom: 20px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      min-width: 900px;
+    .opciones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
     }
 
-    th, td {
-      border: 1px solid #d8e0ea;
-      padding: 9px;
+    .opcion {
+      border: 2px solid #dce8f5;
+      background: white;
+      border-radius: 18px;
+      padding: 25px 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .opcion:hover {
+      transform: translateY(-3px);
+      border-color: #8db4dc;
+      background: #f7fbff;
+    }
+
+    .emoji {
+      font-size: 35px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .opcion strong {
+      color: #355c8a;
+      font-size: 17px;
+    }
+
+    .login {
+      margin-top: 25px;
+      padding: 25px;
+      background: #f7faff;
+      border-radius: 20px;
       text-align: left;
     }
 
-    th {
-      background: #2457a6;
-      color: white;
+    .login h2 {
+      text-align: center;
+      color: #355c8a;
+      margin-bottom: 20px;
     }
 
-    tr:nth-child(even) {
-      background: #f4f7fb;
-    }
-
-    .mensaje {
+    label {
+      display: block;
+      margin-bottom: 8px;
       font-weight: bold;
-      color: #2457a6;
+      color: #4b5f75;
     }
 
-    .fila-botones {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .campo {
+      position: relative;
+      margin-bottom: 18px;
     }
 
-    .fila-botones button {
-      flex: 1;
-      min-width: 150px;
+    input {
+      width: 100%;
+      padding: 14px 48px 14px 14px;
+      border: 2px solid #dce8f5;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #7fa9d2;
+    }
+
+    .ojo {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .boton-login {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .volver {
+      background: transparent;
+      color: #4f82b8;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .pie {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #8996a5;
+    }
+
+    @media (max-width: 650px) {
+      .tarjeta {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .opciones {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div class="contenedor">
-  <h1>📚 Mi Aula 2026</h1>
-  <p>Registro de asistencia, presentación y comportamiento del aula.</p>
+  <main class="pantalla">
 
-  <section id="inicio">
-    <h2>Ingreso al aula</h2>
+    <section class="tarjeta">
 
-    <label>Selecciona tu tipo de usuario:</label>
-    <select id="tipoUsuario">
-      <option value="padre">Padre o madre de familia</option>
-      <option value="delegada">Delegada</option>
-      <option value="tutor">Tutor/a</option>
-    </select>
+      <div class="icono">🏫</div>
 
-    <label>Código de acceso:</label>
-    <input type="password" id="codigo" placeholder="Escribe tu código">
+      <h1>Aula Virtual 2026</h1>
 
-    <button onclick="ingresar()">Ingresar</button>
-    <p id="mensajeIngreso" class="mensaje"></p>
-  </section>
+      <p class="subtitulo">
+        Acompañando el progreso de nuestras estudiantes
+      </p>
 
-  <section id="aula" class="oculto">
-    <div class="fila-botones">
-      <button onclick="cerrarSesion()">Cerrar sesión</button>
-      <button onclick="mostrarRegistros()">Actualizar registros</button>
-    </div>
+      <div class="mensaje">
+        <p>
+          <strong>Bienvenido al Aula Virtual 2026.</strong>
+        </p>
 
-    <div id="panelRegistro" class="tarjeta">
-      <h2>Registrar información</h2>
-
-      <label>Fecha:</label>
-      <input type="date" id="fecha">
-
-      <label>Día:</label>
-      <select id="dia">
-        <option>Lunes</option>
-        <option>Martes</option>
-        <option>Miércoles</option>
-        <option>Jueves</option>
-        <option>Viernes</option>
-      </select>
-
-      <label>Alumna:</label>
-      <select id="alumna"></select>
-
-      <label>Asistencia:</label>
-      <select id="asistencia">
-        <option>Presente</option>
-        <option>Falta</option>
-        <option>Falta justificada</option>
-      </select>
-
-      <label>¿Llegó tarde?</label>
-      <select id="tardanza">
-        <option>No</option>
-        <option>Sí</option>
-      </select>
-
-      <label>Presentación:</label>
-      <select id="presentacion">
-        <option>Uniformada</option>
-        <option>Buzo</option>
-        <option>Incompleta</option>
-        <option>No corresponde</option>
-      </select>
-
-      <label>Comportamiento:</label>
-      <select id="comportamiento">
-        <option>Bueno</option>
-        <option>Regular</option>
-        <option>Por mejorar</option>
-      </select>
-
-      <label>Observaciones:</label>
-      <textarea id="observaciones" rows="4"
-        placeholder="Escribe alguna observación"></textarea>
-
-      <button onclick="guardarRegistro()">Guardar registro</button>
-      <p id="mensajeRegistro" class="mensaje"></p>
-    </div>
-
-    <div class="tarjeta">
-      <h2>Registros del aula</h2>
-      <input
-        type="text"
-        id="busqueda"
-        placeholder="Buscar alumna..."
-        oninput="mostrarRegistros()"
-      >
-
-      <div class="tabla-contenedor">
-        <table>
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Día</th>
-              <th>Alumna</th>
-              <th>Asistencia</th>
-              <th>Tardanza</th>
-              <th>Presentación</th>
-              <th>Comportamiento</th>
-              <th>Observaciones</th>
-            </tr>
-          </thead>
-          <tbody id="tablaRegistros"></tbody>
-        </table>
+        <p>
+          Aquí podrás conocer cómo avanza tu hija paso a paso.
+          Este espacio busca brindar recomendaciones y acompañamiento
+          a las familias, trabajando junto con el colegio para apoyar
+          el desarrollo de cada estudiante.
+        </p>
       </div>
-    </div>
-  </section>
-</div>
 
-<script>
-  const alumnas = [
-    "ARIZA FLORES, COUDY ARELY ESTRELLA",
-    "BECERRA LOYO, YURI AKEMY",
-    "BEDOYA CONCHA, LITZY ABIGAID",
-    "CHURA RODRIGUEZ, NAYARA ROSMERY",
-    "ESPINOZA CARDENAS, RIHANNA SANTOSA BRITTNEY",
-    "GALVEZ MARIN, ASHLEY GAELA",
-    "GUTIERREZ SOLIS, SAYURI KRISTEL",
-    "JIMENEZ MARTINEZ, CINDEL",
-    "HERNANDEZ FAJARDO, TANIA MISHEL",
-    "IPANAQUE CHOLAN, LUCIA AIMEE",
-    "JESUS BRAVO, JHENSNAILY SAYMI",
-    "LEON CARDENAS, DANKA CAMILA",
-    "LOMAS CASTILLO, MELU NATALY",
-    "LUJAN RIPOLL VALDELOMAR, NAYARA YELEZKA",
-    "MARTINEZ GOMERO, DANIELA ABIGAIL",
-    "MESTANZA JIMENEZ, GUADALUPE ROCIO",
-    "MOZOMBITE MACHACA, ARLETH",
-    "NOLBERTO CHAVEZ, VANIA MICAELA",
-    "ORE CARDENAS, KHRISTELL ARLETT",
-    "PAREDES MAGUIÑA, NATALY ARIANA",
-    "QUEVEDO QUEVEDO, ALEXCA MILEDY",
-    "REYES BERROSPI, DHARLIN MARGHOT",
-    "RODRIGUEZ CABALLERO, HANNAH MILEY",
-    "ROMANI HUAMAN, ABIGAIL PANDORA",
-    "SANTIVAÑEZ SOTO, MILENKA MAYVI",
-    "SANTOS DONAYRE, FATIMA BELEN",
-    "SIFUENTES CHINCHAY, DARIANA SAYAKA",
-    "SULLON SINTI, JANNY ANDERE ANGELI",
-    "YONG BARRIENTOS, MIA ARIADNE",
-    "ZAMORA ROMAN, ORIANA VICTORIA",
-    "ZEGARRA RAMOS, CRYSTEL DANAY"
-  ];
+      <button class="boton" onclick="mostrarAccesos()">
+        Ingresar al aula
+      </button>
 
-  let usuarioActual = "";
-  let registros = [];
+      <div id="accesos" class="oculto">
 
-  const selectAlumna = document.getElementById("alumna");
+        <p class="titulo-acceso">
+          ¿Cómo deseas ingresar?
+        </p>
 
-  alumnas.forEach((nombre, indice) => {
-    const opcion = document.createElement("option");
-    opcion.value = indice;
-    opcion.textContent = `${indice + 1}. ${nombre}`;
-    selectAlumna.appendChild(opcion);
-  });
+        <div class="opciones">
 
-  document.getElementById("fecha").value =
-    new Date().toISOString().split("T")[0];
+          <div class="opcion" onclick="abrirLogin('familia')">
+            <span class="emoji">👨‍👩‍👧</span>
+            <strong>Familia</strong>
+          </div>
 
-  function ingresar() {
-    const tipo = document.getElementById("tipoUsuario").value;
-    const codigo = document.getElementById("codigo").value.trim().toUpperCase();
-    const mensaje = document.getElementById("mensajeIngreso");
+          <div class="opcion" onclick="abrirLogin('alumna')">
+            <span class="emoji">👩‍🎓</span>
+            <strong>Alumna</strong>
+          </div>
 
-    if (tipo === "delegada" && codigo === "DELEGADA2026") {
-      usuarioActual = "delegada";
-    } else if (tipo === "tutor" && codigo === "TUTOR2026") {
-      usuarioActual = "tutor";
-    } else if (tipo === "padre") {
-      const numero = alumnas.findIndex((nombre, indice) => {
-        const apellido = nombre.split(" ")[0];
-        return codigo === `${apellido}${indice + 1}`;
-      });
+          <div class="opcion" onclick="abrirLogin('profesor')">
+            <span class="emoji">👩‍🏫</span>
+            <strong>Profesor</strong>
+          </div>
 
-      if (numero !== -1) {
-        usuarioActual = `padre-${numero}`;
+        </div>
+
+        <div id="login" class="login oculto">
+
+          <h2 id="tituloLogin">Acceso</h2>
+
+          <div class="campo">
+            <label for="usuario">Nombre</label>
+            <input
+              type="text"
+              id="usuario"
+              placeholder="Escribe tu nombre"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="campo">
+
+            <label for="codigo">
+              Código de acceso
+            </label>
+
+            <input
+              type="password"
+              id="codigo"
+              placeholder="Escribe tu código"
+              autocomplete="off"
+            >
+
+            <button
+              type="button"
+              class="ojo"
+              onclick="mostrarCodigo()"
+              id="botonOjo"
+              title="Mostrar código"
+            >
+              👁️
+            </button>
+
+          </div>
+
+          <button class="boton boton-login" onclick="iniciarSesion()">
+            Ingresar
+          </button>
+
+          <button class="boton volver" onclick="volverOpciones()">
+            ← Volver
+          </button>
+
+        </div>
+
+      </div>
+
+      <p class="pie">
+        Aula Virtual 2026 · Espacio de acompañamiento escolar
+      </p>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    let tipoAcceso = "";
+
+    function mostrarAccesos() {
+      document.getElementById("accesos").classList.remove("oculto");
+    }
+
+    function abrirLogin(tipo) {
+
+      tipoAcceso = tipo;
+
+      const login = document.getElementById("login");
+      const titulo = document.getElementById("tituloLogin");
+
+      if (tipo === "familia") {
+        titulo.textContent = "Acceso de la familia";
+      }
+
+      if (tipo === "alumna") {
+        titulo.textContent = "Acceso de la alumna";
+      }
+
+      if (tipo === "profesor") {
+        titulo.textContent = "Acceso del profesor";
+      }
+
+      login.classList.remove("oculto");
+    }
+
+    function mostrarCodigo() {
+
+      const campo = document.getElementById("codigo");
+      const boton = document.getElementById("botonOjo");
+
+      if (campo.type === "password") {
+        campo.type = "text";
+        boton.textContent = "🙈";
+        boton.title = "Ocultar código";
       } else {
-        mensaje.textContent = "Código familiar incorrecto.";
+        campo.type = "password";
+        boton.textContent = "👁️";
+        boton.title = "Mostrar código";
+      }
+    }
+
+    function volverOpciones() {
+
+      document.getElementById("login").classList.add("oculto");
+
+      document.getElementById("usuario").value = "";
+      document.getElementById("codigo").value = "";
+
+    }
+
+    function iniciarSesion() {
+
+      const usuario = document.getElementById("usuario").value;
+      const codigo = document.getElementById("codigo").value;
+
+      if (usuario === "" || codigo === "") {
+        alert("Completa tu nombre y tu código.");
         return;
       }
-    } else {
-      mensaje.textContent = "Código incorrecto.";
-      return;
-    }
 
-    document.getElementById("inicio").classList.add("oculto");
-    document.getElementById("aula").classList.remove("oculto");
-
-    if (usuarioActual.startsWith("padre-")) {
-      document.getElementById("panelRegistro").classList.add("oculto");
-    } else {
-      document.getElementById("panelRegistro").classList.remove("oculto");
-    }
-
-    mostrarRegistros();
-  }
-
-  function guardarRegistro() {
-    if (
-      usuarioActual !== "delegada" &&
-      usuarioActual !== "tutor"
-    ) {
-      return;
-    }
-
-    const registro = {
-      fecha: document.getElementById("fecha").value,
-      dia: document.getElementById("dia").value,
-      alumna: Number(document.getElementById("alumna").value),
-      asistencia: document.getElementById("asistencia").value,
-      tardanza: document.getElementById("tardanza").value,
-      presentacion: document.getElementById("presentacion").value,
-      comportamiento: document.getElementById("comportamiento").value,
-      observaciones: document.getElementById("observaciones").value
-    };
-
-    registros.push(registro);
-
-    document.getElementById("mensajeRegistro").textContent =
-      "Registro guardado correctamente.";
-
-    document.getElementById("observaciones").value = "";
-    mostrarRegistros();
-  }
-
-  function mostrarRegistros() {
-    const tabla = document.getElementById("tablaRegistros");
-    const busqueda = document
-      .getElementById("busqueda")
-      .value
-      .toLowerCase();
-
-    tabla.innerHTML = "";
-
-    let registrosFiltrados = registros;
-
-    if (usuarioActual.startsWith("padre-")) {
-      const numeroAlumna = Number(usuarioActual.split("-")[1]);
-      registrosFiltrados = registros.filter(
-        registro => registro.alumna === numeroAlumna
+      alert(
+        "El sistema de acceso todavía está en construcción. " +
+        "Después conectaremos aquí los códigos reales."
       );
     }
 
-    registrosFiltrados
-      .filter(registro =>
-        alumnas[registro.alumna].toLowerCase().includes(busqueda)
-      )
-      .forEach(registro => {
-        const fila = document.createElement("tr");
-
-        fila.innerHTML = `
-          <td>${registro.fecha}</td>
-          <td>${registro.dia}</td>
-          <td>${alumnas[registro.alumna]}</td>
-          <td>${registro.asistencia}</td>
-          <td>${registro.tardanza}</td>
-          <td>${registro.presentacion}</td>
-          <td>${registro.comportamiento}</td>
-          <td>${registro.observaciones}</td>
-        `;
-
-        tabla.appendChild(fila);
-      });
-  }
-
-  function cerrarSesion() {
-    usuarioActual = "";
-    document.getElementById("aula").classList.add("oculto");
-    document.getElementById("inicio").classList.remove("oculto");
-    document.getElementById("codigo").value = "";
-    document.getElementById("mensajeIngreso").textContent = "";
-  }
-</script>
+  </script>
 
 </body>
 </html>
