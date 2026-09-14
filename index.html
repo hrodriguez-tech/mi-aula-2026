@@ -1,401 +1,649 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula Virtual 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula Virtual 2026</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #eaf4ff, #f7efff);
-      color: #26364a;
-    }
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf4ff, #f7efff);
+  color: #26364a;
+}
 
-    .pantalla {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-    }
+.pantalla {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
 
-    .tarjeta {
-      width: 100%;
-      max-width: 850px;
-      background: white;
-      border-radius: 28px;
-      padding: 45px;
-      text-align: center;
-      box-shadow: 0 12px 40px rgba(60, 80, 120, 0.15);
-    }
+.tarjeta {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow: 0 12px 40px rgba(60,80,120,.15);
+}
 
-    .icono {
-      font-size: 60px;
-      margin-bottom: 15px;
-    }
+.centro {
+  text-align: center;
+}
 
-    h1 {
-      font-size: 38px;
-      color: #355c8a;
-      margin-bottom: 12px;
-    }
+.icono {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
 
-    .subtitulo {
-      font-size: 20px;
-      color: #68788d;
-      margin-bottom: 25px;
-    }
+h1 {
+  color: #355c8a;
+  font-size: 38px;
+  margin-bottom: 12px;
+}
 
-    .mensaje {
-      background: #f4f8fc;
-      border-radius: 18px;
-      padding: 22px;
-      margin: 25px 0 30px;
-      line-height: 1.7;
-      font-size: 17px;
-    }
+.subtitulo {
+  color: #68788d;
+  font-size: 19px;
+  margin-bottom: 25px;
+}
 
-    .boton {
-      border: none;
-      border-radius: 14px;
-      padding: 15px 35px;
-      font-size: 17px;
-      cursor: pointer;
-      background: #4f82b8;
-      color: white;
-      transition: 0.2s;
-    }
+.mensaje {
+  background: #f4f8fc;
+  border-radius: 18px;
+  padding: 22px;
+  line-height: 1.7;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
 
-    .boton:hover {
-      transform: translateY(-2px);
-      background: #3d6f9f;
-    }
+.boton {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #4f82b8;
+  color: white;
+  margin: 5px;
+}
 
-    .oculto {
-      display: none;
-    }
+.boton:hover {
+  background: #3d6f9f;
+}
 
-    #accesos {
-      margin-top: 30px;
-    }
+.oculto {
+  display: none;
+}
 
-    .titulo-acceso {
-      font-size: 25px;
-      color: #355c8a;
-      margin-bottom: 20px;
-    }
+.titulo {
+  color: #355c8a;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .opciones {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
 
-    .opcion {
-      border: 2px solid #dce8f5;
-      background: white;
-      border-radius: 18px;
-      padding: 25px 15px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+.opcion {
+  border: 2px solid #dce8f5;
+  border-radius: 18px;
+  padding: 25px 10px;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+}
 
-    .opcion:hover {
-      transform: translateY(-3px);
-      border-color: #8db4dc;
-      background: #f7fbff;
-    }
+.opcion:hover {
+  background: #f5faff;
+  border-color: #8db4dc;
+  transform: translateY(-2px);
+}
 
-    .emoji {
-      font-size: 35px;
-      display: block;
-      margin-bottom: 10px;
-    }
+.emoji {
+  display: block;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
 
-    .opcion strong {
-      color: #355c8a;
-      font-size: 17px;
-    }
+.login {
+  margin-top: 25px;
+  background: #f7faff;
+  padding: 25px;
+  border-radius: 20px;
+}
 
-    .login {
-      margin-top: 25px;
-      padding: 25px;
-      background: #f7faff;
-      border-radius: 20px;
-      text-align: left;
-    }
+.login h2 {
+  text-align: center;
+  color: #355c8a;
+  margin-bottom: 20px;
+}
 
-    .login h2 {
-      text-align: center;
-      color: #355c8a;
-      margin-bottom: 20px;
-    }
+.campo {
+  margin-bottom: 18px;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #4b5f75;
-    }
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #4b5f75;
+}
 
-    .campo {
-      position: relative;
-      margin-bottom: 18px;
-    }
+input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #dce8f5;
+  border-radius: 12px;
+  font-size: 16px;
+}
 
-    input {
-      width: 100%;
-      padding: 14px 48px 14px 14px;
-      border: 2px solid #dce8f5;
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-    }
+.codigo-contenedor {
+  position: relative;
+}
 
-    input:focus {
-      border-color: #7fa9d2;
-    }
+.codigo-contenedor input {
+  padding-right: 50px;
+}
 
-    .ojo {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      font-size: 20px;
-    }
+.ojo {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
 
-    .boton-login {
-      width: 100%;
-      margin-top: 5px;
-    }
+.panel {
+  margin-top: 25px;
+}
 
-    .volver {
-      background: transparent;
-      color: #4f82b8;
-      margin-top: 10px;
-      width: 100%;
-    }
+.tarjeta-panel {
+  background: #f7faff;
+  border-radius: 18px;
+  padding: 25px;
+  margin-top: 20px;
+}
 
-    .pie {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #8996a5;
-    }
+.tarjeta-panel h3 {
+  color: #355c8a;
+  margin-bottom: 12px;
+}
 
-    @media (max-width: 650px) {
-      .tarjeta {
-        padding: 30px 20px;
-      }
+.registro {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  margin-top: 12px;
+  border: 1px solid #e1eaf3;
+}
 
-      h1 {
-        font-size: 30px;
-      }
+.registro p {
+  margin: 6px 0;
+}
 
-      .opciones {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.pie {
+  text-align: center;
+  color: #8996a5;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+@media (max-width: 750px) {
+  .opciones {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tarjeta {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .opciones {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <main class="pantalla">
+<main class="pantalla">
 
-    <section class="tarjeta">
+<section class="tarjeta">
 
-      <div class="icono">🏫</div>
+<div id="inicio">
 
-      <h1>Aula Virtual 2026</h1>
+<div class="centro">
 
-      <p class="subtitulo">
-        Acompañando el progreso de nuestras estudiantes
-      </p>
+<div class="icono">🏫</div>
 
-      <div class="mensaje">
-        <p>
-          <strong>Bienvenido al Aula Virtual 2026.</strong>
-        </p>
+<h1>Aula Virtual 2026</h1>
 
-        <p>
-          Aquí podrás conocer cómo avanza tu hija paso a paso.
-          Este espacio busca brindar recomendaciones y acompañamiento
-          a las familias, trabajando junto con el colegio para apoyar
-          el desarrollo de cada estudiante.
-        </p>
-      </div>
+<p class="subtitulo">
+Acompañando el progreso de nuestras estudiantes
+</p>
 
-      <button class="boton" onclick="mostrarAccesos()">
-        Ingresar al aula
-      </button>
+<div class="mensaje">
 
-      <div id="accesos" class="oculto">
+<strong>Bienvenido al Aula Virtual 2026.</strong>
 
-        <p class="titulo-acceso">
-          ¿Cómo deseas ingresar?
-        </p>
+<p>
+Aquí podrás conocer cómo avanza tu hija paso a paso.
+Este espacio busca brindar recomendaciones y acompañamiento
+a las familias, trabajando junto con el colegio para apoyar
+el desarrollo de cada estudiante.
+</p>
 
-        <div class="opciones">
+</div>
 
-          <div class="opcion" onclick="abrirLogin('familia')">
-            <span class="emoji">👨‍👩‍👧</span>
-            <strong>Familia</strong>
-          </div>
+<button class="boton" onclick="mostrarAccesos()">
+Ingresar al aula
+</button>
 
-          <div class="opcion" onclick="abrirLogin('alumna')">
-            <span class="emoji">👩‍🎓</span>
-            <strong>Alumna</strong>
-          </div>
+</div>
 
-          <div class="opcion" onclick="abrirLogin('profesor')">
-            <span class="emoji">👩‍🏫</span>
-            <strong>Profesor</strong>
-          </div>
+</div>
 
-        </div>
 
-        <div id="login" class="login oculto">
+<div id="accesos" class="oculto">
 
-          <h2 id="tituloLogin">Acceso</h2>
+<h2 class="titulo">
+Selecciona tu tipo de acceso
+</h2>
 
-          <div class="campo">
-            <label for="usuario">Nombre</label>
-            <input
-              type="text"
-              id="usuario"
-              placeholder="Escribe tu nombre"
-              autocomplete="off"
-            >
-          </div>
+<div class="opciones">
 
-          <div class="campo">
+<div class="opcion" onclick="abrirLogin('familia')">
+<span class="emoji">👨‍👩‍👧</span>
+<strong>Familia</strong>
+</div>
 
-            <label for="codigo">
-              Código de acceso
-            </label>
+<div class="opcion" onclick="abrirLogin('alumna')">
+<span class="emoji">👩‍🎓</span>
+<strong>Alumna</strong>
+</div>
 
-            <input
-              type="password"
-              id="codigo"
-              placeholder="Escribe tu código"
-              autocomplete="off"
-            >
+<div class="opcion" onclick="abrirLogin('delegada')">
+<span class="emoji">⭐</span>
+<strong>Delegada</strong>
+</div>
 
-            <button
-              type="button"
-              class="ojo"
-              onclick="mostrarCodigo()"
-              id="botonOjo"
-              title="Mostrar código"
-            >
-              👁️
-            </button>
+<div class="opcion" onclick="abrirLogin('tutor')">
+<span class="emoji">👩‍🏫</span>
+<strong>Tutor</strong>
+</div>
 
-          </div>
+</div>
 
-          <button class="boton boton-login" onclick="iniciarSesion()">
-            Ingresar
-          </button>
+<div id="login" class="login oculto">
 
-          <button class="boton volver" onclick="volverOpciones()">
-            ← Volver
-          </button>
+<h2 id="tituloLogin">Acceso</h2>
 
-        </div>
+<div class="campo">
 
-      </div>
+<label>Nombre</label>
 
-      <p class="pie">
-        Aula Virtual 2026 · Espacio de acompañamiento escolar
-      </p>
+<input
+type="text"
+id="nombre"
+placeholder="Escribe tu nombre"
+>
 
-    </section>
+</div>
 
-  </main>
+<div class="campo">
 
-  <script>
+<label>Código de acceso</label>
 
-    let tipoAcceso = "";
+<div class="codigo-contenedor">
 
-    function mostrarAccesos() {
-      document.getElementById("accesos").classList.remove("oculto");
-    }
+<input
+type="password"
+id="codigo"
+placeholder="Escribe tu código"
+>
 
-    function abrirLogin(tipo) {
+<button
+class="ojo"
+onclick="mostrarCodigo()"
+id="ojo"
+>
+👁️
+</button>
 
-      tipoAcceso = tipo;
+</div>
 
-      const login = document.getElementById("login");
-      const titulo = document.getElementById("tituloLogin");
+</div>
 
-      if (tipo === "familia") {
-        titulo.textContent = "Acceso de la familia";
-      }
+<div class="centro">
 
-      if (tipo === "alumna") {
-        titulo.textContent = "Acceso de la alumna";
-      }
+<button class="boton" onclick="ingresar()">
+Ingresar
+</button>
 
-      if (tipo === "profesor") {
-        titulo.textContent = "Acceso del profesor";
-      }
+<button class="boton" onclick="volver()">
+Volver
+</button>
 
-      login.classList.remove("oculto");
-    }
+</div>
 
-    function mostrarCodigo() {
+</div>
 
-      const campo = document.getElementById("codigo");
-      const boton = document.getElementById("botonOjo");
+</div>
 
-      if (campo.type === "password") {
-        campo.type = "text";
-        boton.textContent = "🙈";
-        boton.title = "Ocultar código";
-      } else {
-        campo.type = "password";
-        boton.textContent = "👁️";
-        boton.title = "Mostrar código";
-      }
-    }
 
-    function volverOpciones() {
+<div id="panelFamilia" class="panel oculto">
 
-      document.getElementById("login").classList.add("oculto");
+<h2 class="titulo">
+¡Muy buenos días, familia!
+</h2>
 
-      document.getElementById("usuario").value = "";
-      document.getElementById("codigo").value = "";
+<div class="tarjeta-panel">
 
-    }
+<h3>
+Avance de tu hija
+</h3>
 
-    function iniciarSesion() {
+<p>
+Aquí podrás consultar el avance registrado día por día.
+</p>
 
-      const usuario = document.getElementById("usuario").value;
-      const codigo = document.getElementById("codigo").value;
+<div class="registro">
+<strong>Registro diario</strong>
+<p>📅 Fecha: Próximamente</p>
+<p>⏰ Hora de llegada: Próximamente</p>
+<p>👗 Uniforme: Próximamente</p>
+<p>🤝 Comportamiento: Próximamente</p>
+<p>💬 Observación: Próximamente</p>
+</div>
 
-      if (usuario === "" || codigo === "") {
-        alert("Completa tu nombre y tu código.");
-        return;
-      }
+</div>
 
-      alert(
-        "El sistema de acceso todavía está en construcción. " +
-        "Después conectaremos aquí los códigos reales."
-      );
-    }
+<button class="boton" onclick="cerrarPanel()">
+Cerrar sesión
+</button>
 
-  </script>
+</div>
+
+
+<div id="panelAlumna" class="panel oculto">
+
+<h2 class="titulo">
+¡Hola, estudiante!
+</h2>
+
+<div class="tarjeta-panel">
+
+<h3>
+Tu avance
+</h3>
+
+<p>
+Aquí podrás revisar tu progreso y conocer cómo estás avanzando
+día a día.
+</p>
+
+<div class="registro">
+
+<p>📅 Registros diarios</p>
+<p>⏰ Puntualidad</p>
+<p>👗 Presentación</p>
+<p>🤝 Comportamiento</p>
+<p>📚 Participación</p>
+
+</div>
+
+<p style="margin-top:15px;">
+<strong>¡Tú puedes! Cada pequeño esfuerzo cuenta.</strong>
+</p>
+
+</div>
+
+<button class="boton" onclick="cerrarPanel()">
+Cerrar sesión
+</button>
+
+</div>
+
+
+<div id="panelDelegada" class="panel oculto">
+
+<h2 class="titulo">
+¡Hola, Delegada! ⭐
+</h2>
+
+<div class="tarjeta-panel">
+
+<h3>
+Lista para registrar
+</h3>
+
+<p>
+Desde aquí podrás administrar los registros del aula.
+</p>
+
+<div class="registro">
+
+<p>➕ Agregar estudiante</p>
+<p>✏️ Editar información</p>
+<p>🗑️ Eliminar registros</p>
+<p>⏰ Registrar hora de llegada</p>
+<p>👗 Registrar uniforme</p>
+<p>🤝 Registrar comportamiento</p>
+<p>💬 Agregar observaciones</p>
+<p>🔑 Gestionar códigos</p>
+
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:15px;">
+<strong>¡Tú puedes! Vamos a trabajar juntas para que el aula siga avanzando.</strong>
+</p>
+
+<button class="boton" onclick="cerrarPanel()">
+Cerrar sesión
+</button>
+
+</div>
+
+
+<div id="panelTutor" class="panel oculto">
+
+<h2 class="titulo">
+Área del Tutor
+</h2>
+
+<div class="tarjeta-panel">
+
+<h3>
+Crecer juntos, avanzar juntos
+</h3>
+
+<p>
+Este espacio permitirá al tutor revisar el progreso de las
+estudiantes, acompañar sus avances y brindar recomendaciones.
+</p>
+
+<div class="registro">
+
+<p>📅 Revisar registros</p>
+<p>📊 Consultar avances</p>
+<p>💬 Revisar observaciones</p>
+<p>🌱 Acompañar el progreso</p>
+
+</div>
+
+</div>
+
+<button class="boton" onclick="cerrarPanel()">
+Cerrar sesión
+</button>
+
+</div>
+
+
+<p class="pie">
+Aula Virtual 2026 · Colegio y familia trabajando juntos
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+let tipoAcceso = "";
+
+function mostrarAccesos() {
+
+document.getElementById("inicio").classList.add("oculto");
+
+document.getElementById("accesos").classList.remove("oculto");
+
+}
+
+function abrirLogin(tipo) {
+
+tipoAcceso = tipo;
+
+let titulo = document.getElementById("tituloLogin");
+
+if (tipo === "familia") {
+titulo.textContent = "Acceso de la familia";
+}
+
+if (tipo === "alumna") {
+titulo.textContent = "Acceso de la alumna";
+}
+
+if (tipo === "delegada") {
+titulo.textContent = "Acceso de la delegada";
+}
+
+if (tipo === "tutor") {
+titulo.textContent = "Acceso del tutor";
+}
+
+document.getElementById("login").classList.remove("oculto");
+
+}
+
+function mostrarCodigo() {
+
+let codigo = document.getElementById("codigo");
+
+let ojo = document.getElementById("ojo");
+
+if (codigo.type === "password") {
+
+codigo.type = "text";
+
+ojo.textContent = "🙈";
+
+} else {
+
+codigo.type = "password";
+
+ojo.textContent = "👁️";
+
+}
+
+}
+
+function ingresar() {
+
+let nombre = document.getElementById("nombre").value;
+
+let codigo = document.getElementById("codigo").value;
+
+if (nombre === "" || codigo === "") {
+
+alert("Por favor, completa tu nombre y tu código.");
+
+return;
+
+}
+
+document.getElementById("accesos").classList.add("oculto");
+
+document.getElementById("login").classList.add("oculto");
+
+document.getElementById("inicio").classList.add("oculto");
+
+if (tipoAcceso === "familia") {
+
+document.getElementById("panelFamilia").classList.remove("oculto");
+
+}
+
+if (tipoAcceso === "alumna") {
+
+document.getElementById("panelAlumna").classList.remove("oculto");
+
+}
+
+if (tipoAcceso === "delegada") {
+
+document.getElementById("panelDelegada").classList.remove("oculto");
+
+}
+
+if (tipoAcceso === "tutor") {
+
+document.getElementById("panelTutor").classList.remove("oculto");
+
+}
+
+}
+
+function volver() {
+
+document.getElementById("login").classList.add("oculto");
+
+document.getElementById("nombre").value = "";
+
+document.getElementById("codigo").value = "";
+
+}
+
+function cerrarPanel() {
+
+document.getElementById("panelFamilia").classList.add("oculto");
+
+document.getElementById("panelAlumna").classList.add("oculto");
+
+document.getElementById("panelDelegada").classList.add("oculto");
+
+document.getElementById("panelTutor").classList.add("oculto");
+
+document.getElementById("inicio").classList.remove("oculto");
+
+}
+
+</script>
 
 </body>
 </html>
